@@ -40,10 +40,14 @@ git_repository(
 # When updating envoy sha manually please update the sha in istio.deps file also
 ENVOY_SHA = "c2baf348055284ac761d94e9a06bc37ebf8a3532"
 
-http_archive(
+#http_archive(
+#    name = "envoy",
+#    strip_prefix = "envoy-" + ENVOY_SHA,
+#    url = "https://github.com/envoyproxy/envoy/archive/" + ENVOY_SHA + ".zip",
+#)
+local_repository(
     name = "envoy",
-    strip_prefix = "envoy-" + ENVOY_SHA,
-    url = "https://github.com/envoyproxy/envoy/archive/" + ENVOY_SHA + ".zip",
+    path = "/usr/local/google/home/diemvu/go/src/envoy",
 )
 
 load("@envoy//bazel:repositories.bzl", "envoy_dependencies")

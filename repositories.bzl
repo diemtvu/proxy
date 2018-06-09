@@ -198,11 +198,16 @@ filegroup(
 )
 
 """
-    native.new_git_repository(
+    #native.new_git_repository(
+    #    name = "mixerapi_git",
+    #    build_file_content = BUILD,
+    #    commit = ISTIO_API,
+    #    remote = "https://github.com/istio/api.git",
+    #)
+    native.new_local_repository(
         name = "mixerapi_git",
         build_file_content = BUILD,
-        commit = ISTIO_API,
-        remote = "https://github.com/istio/api.git",
+        path = "/usr/local/google/home/diemvu/go/src/istio.io/api",
     )
     if bind:
         native.bind(
